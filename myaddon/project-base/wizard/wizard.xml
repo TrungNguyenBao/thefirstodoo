@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+    <record id="action_wizard_view" model="ir.ui.view">
+        <field name="name">Wizard form</field>
+        <field name="model">exam.wizard.tag</field>
+        <field name="arch" type="xml">
+            <form string="Create tags">
+                <sheet>
+                    <group>
+                        <field name="task_id"/>
+                        <field name="tags"/>
+                        <field name="update_option"/>
+                        <footer>
+                            <button string="Update" name="btn_update" type="object"/>
+                            <button name="btn_cancel" type="object" string="Cancel"/>
+                        </footer>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard" model="ir.actions.act_window">
+        <field name="name">Wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">exam.wizard.tag</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="action_wizard_view"/>
+        <field name="target">new</field>
+    </record>
+    </data>
+</odoo>

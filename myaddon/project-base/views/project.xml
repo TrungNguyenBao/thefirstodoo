@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="project_action" model="ir.actions.act_window">
+            <field name="name">Manager Project</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">exam.project</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="project_tree_view" model="ir.ui.view">
+            <field name="name">Tree view</field>
+            <field name="model">exam.project</field>
+            <field name="arch" type="xml">
+                <tree string="Tree view name">
+                     <field name="name"/>
+                     <field name="start_date"/>
+                     <field name="due_date"/>
+                 </tree>
+            </field>
+        </record>
+
+        <record id="project_kanban_view" model="ir.ui.view">
+         <field name="name">Kanban Project</field>
+          <field name="model">exam.project</field>
+         <field name="arch" type="xml">
+            <kanban>
+               <field name="name"/>
+                <field name="start_date"/>
+                <field name="due_date"/>
+                 <templates>
+                     <t t-name="kanban-box">
+                         <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong><field name="name"/></strong>
+                            </div>
+                         </div>
+                     </t>
+                 </templates>
+             </kanban>
+             </field>
+        </record>
+
+
+        <record id="project_form_view" model="ir.ui.view">
+            <field name="name">Form View</field>
+            <field name="model">exam.project</field>
+            <field name="arch" type="xml">
+                <form string="Project">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="due_date"/>
+                        </group>
+                        <notebook>
+                            <page string="Danh sách các task">
+                                <field name="task_id" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

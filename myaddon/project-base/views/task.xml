@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="task_action_project" model="ir.actions.act_window">
+            <field name="name">Manager Task</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">exam.task</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+        <record id="task_tree_view" model="ir.ui.view">
+            <field name="name">Tree view</field>
+            <field name="model">exam.task</field>
+            <field name="arch" type="xml">
+                <tree string="Tree view name">
+                     <field name="name"/>
+                     <field name="start_date"/>
+                     <field name="due_date"/>
+                     <field name="user_id"/>
+                 </tree>
+            </field>
+        </record>
+
+        <record id="task_form_view" model="ir.ui.view">
+            <field name="name">Task Form View</field>
+            <field name="model">exam.task</field>
+            <field name="arch" type="xml">
+                <form string="Task View">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="project_id"/>
+                                <field name="user_id"/>
+                            </group>
+                            <group>
+                                <field name="start_date"/>
+                                <field name="due_date"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

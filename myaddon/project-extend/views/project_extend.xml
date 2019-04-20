@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="duy_nhat_21343" model="ir.ui.view">
+             <field name="name">Danh sách project</field>
+             <field name="model">exam.project</field>
+             <field name="inherit_id" ref="project-base.project_form_view"/>
+             <field name="arch" type="xml">
+                 <xpath expr="//field[@name='start_date']" position="after">
+                     <!-- Add new fields here -->
+                     <field name="status"/>
+                     <field name="working_status"/>
+                 </xpath>
+             </field>
+         </record>
+
+        <record id="project_exam_filter" model="ir.ui.view">
+            <field name="name">Filter</field>
+            <field name="model">exam.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="init" name="status_default" domain="[('status','=','init')]"/>
+                </search>
+            </field>
+        </record>
+<!--        <record model="ir.actions.act_window"-->
+<!--                id="project-base.project">-->
+<!--            <field name="context">-->
+<!--                {'search_default_status_default': True}-->
+<!--            </field>-->
+<!--        </record>-->
+    </data>
+</odoo>
